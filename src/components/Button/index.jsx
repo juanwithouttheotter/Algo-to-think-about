@@ -1,9 +1,13 @@
-import React from 'react'
-import Button from 'react-bootstrap/Button'
-import "./Button.css"
+import React from 'react';
 
-function Btn(props){
-   return <Button variant={props.btn} onClick={props.btnAction} >{props.name}</Button>
+import './Button.css';
+
+function Btn({ btn, btnAction, name }) {
+        return (
+                <button className={btn} onClick={btnAction} type="button">
+                        {name}
+                </button>
+        );
 }
 
 export default Btn;

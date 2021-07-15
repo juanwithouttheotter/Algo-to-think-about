@@ -1,33 +1,38 @@
 import React, { Component } from 'react';
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
 import SearchBar from '../../components/SearchBar';
 import Btn from '../../components/Button';
 
 class Search extends Component {
-    state = {
-        inputValue: ''
-    }
+        constructor(props) {
+                super(props);
+                this.state = {
+                        inputValue: '',
+                };
+        }
 
-    searchOnChange = (e) => {
-        this.setState({
-            inputValue: e.target.value
-        });
-    }
-    render() {
-    return(
-        <Container fluid>
-            <Row>
-                <SearchBar></SearchBar>
-            </Row>
-            <Row>
-                <Btn btn="Primary"></Btn>
+        searchOnChange = (e) => {
+                this.setState({
+                        inputValue: e.target.value,
+                });
+        };
 
-            </Row>
-        </Container>
-    )
-    }
+        render() {
+                const { inputValue } = this.state;
+                return (
+                        <div>
+                                <div>
+                                        <SearchBar
+                                                inputValue={inputValue}
+                                                searchOnChange={this.searchOnChange}
+                                                placeholder="Search for..."
+                                        />
+                                </div>
+                                <div>
+                                        <Btn btn="button is-info" name="submit" />
+                                </div>
+                        </div>
+                );
+        }
 }
 
 export default Search;
