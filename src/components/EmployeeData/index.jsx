@@ -1,7 +1,7 @@
 import React from 'react';
 import Btn from '../Button';
 
-function TableData({ employees, deleteEmployee }) {
+function TableData({ employees, deleteEmployee, toggleModal }) {
         return employees.map((employee) => {
                 const { _id, name, sex, birthday } = employee;
 
@@ -13,7 +13,14 @@ function TableData({ employees, deleteEmployee }) {
                                 <td>{sex}</td>
                                 <td>{birthday.substr(0, 10)}</td>
                                 <td>
-                                        <Btn btn="delete" btnAction={() => deleteEmployee(_id)} />
+                                        <Btn
+                                                btn="button is-primary is-small"
+                                                btnAction={() => toggleModal(_id)}
+                                                name="update"
+                                        />
+                                </td>
+                                <td>
+                                        <Btn btn="delete" id={_id} btnAction={() => deleteEmployee(_id)} />
                                 </td>
                         </tr>
                 );

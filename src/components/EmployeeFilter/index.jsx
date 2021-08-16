@@ -4,16 +4,10 @@ import EmployeeSort from '../EmployeeSort';
 import SelectInput from '../SelectInput';
 import Btn from '../Button';
 
-const EmployeeFilter = ({ employees, deleteEmployee }) => {
+const EmployeeFilter = ({ employees, deleteEmployee, toggleModal }) => {
         const [filtEmplys, setfiltEmplys] = useState(employees);
         const [searchInput, setSearchInput] = useState({ category: '', search: '' });
-        const categoryOpts = [
-                { optValue: '', optName: 'Choose Category', key: 'catOptKey' },
-                { optValue: 'first', optName: 'First name', key: 'firstOptKey' },
-                { optValue: 'last', optName: 'Last name', key: 'lastOptKey' },
-                { optValue: 'sex', optName: 'Sex', key: 'sexCatOptKey' },
-                { optValue: 'birthday', optName: 'Birthday', key: 'birthdayOptKey' },
-        ];
+
         useEffect(() => {
                 setfiltEmplys(employees);
         }, [employees]);
@@ -22,7 +16,7 @@ const EmployeeFilter = ({ employees, deleteEmployee }) => {
                 setSearchInput({ search: e.target.value, category: searchInput.category });
         };
         const handleSelectChange = (e) => {
-                console.log(e.target.value);
+                console.log(e.target.name);
                 setSearchInput({ category: e.target.value, search: searchInput.search });
                 console.log(searchInput);
         };
@@ -65,7 +59,7 @@ const EmployeeFilter = ({ employees, deleteEmployee }) => {
                                 </div>
                                 <div className="column is-narrow is-primary select">
                                         <SelectInput
-                                                options={categoryOpts}
+                                                options="category"
                                                 selectOnChange={handleSelectChange}
                                                 selectValue={searchInput.category}
                                         />
@@ -76,7 +70,11 @@ const EmployeeFilter = ({ employees, deleteEmployee }) => {
                         </div>
                         <div className="columns">
                                 <div className="column" />
-                                <EmployeeSort filtEmplys={filtEmplys} deleteEmployee={deleteEmployee} />
+                                <EmployeeSort
+                                        filtEmplys={filtEmplys}
+                                        deleteEmployee={deleteEmployee}
+                                        toggleModal={toggleModal}
+                                />
                                 <div className="column" />
                         </div>
                 </div>

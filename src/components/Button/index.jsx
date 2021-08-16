@@ -1,10 +1,8 @@
 import React from 'react';
 
-import './Button.css';
-
-function Btn({ btn, btnAction, name }) {
+function Btn({ btn, btnAction, name, id }) {
         return (
-                <button className={btn} onClick={btnAction} type="button">
+                <button className={btn} id={id} onClick={btnAction} type="button">
                         {name}
                 </button>
         );

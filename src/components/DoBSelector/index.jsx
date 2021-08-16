@@ -18,7 +18,7 @@ function DoBSelector({ className, dobOnChange }) {
                 element.bulmaCalendar.on('select', (datepicker) => {
                         let choseDate = new Date(datepicker.data.value());
                         choseDate = choseDate.toISOString();
-                        dobOnChange(choseDate);
+                        dobOnChange('birthday', choseDate);
                 });
         }
 

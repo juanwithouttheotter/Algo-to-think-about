@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import EmployeeData from '../EmployeeData';
 
-const EmployeeSort = ({ filtEmplys, deleteEmployee }) => {
+const EmployeeSort = ({ filtEmplys, deleteEmployee, toggleModal }) => {
         const [sortConfig, setSortConfig] = useState({ key: null, direction: null, subKey: null });
 
         if (filtEmplys !== null) {
@@ -36,25 +36,37 @@ const EmployeeSort = ({ filtEmplys, deleteEmployee }) => {
                 <table className="table">
                         <thead>
                                 <tr>
-                                        <th key="ID" onClick={() => reqSort('id')}>
+                                        <th className="is-clickable" key="ID" onClick={() => reqSort('id')}>
                                                 Id
                                         </th>
-                                        <th key="FIRSTNAME" onClick={() => reqSort('name', 'first')}>
+                                        <th
+                                                className="is-clickable"
+                                                key="FIRSTNAME"
+                                                onClick={() => reqSort('name', 'first')}
+                                        >
                                                 First Name
                                         </th>
-                                        <th key="LASTNAME" onClick={() => reqSort('name', 'last')}>
+                                        <th
+                                                className="is-clickable"
+                                                key="LASTNAME"
+                                                onClick={() => reqSort('name', 'last')}
+                                        >
                                                 Last Name
                                         </th>
-                                        <th key="SEX" onClick={() => reqSort('sex')}>
+                                        <th className="is-clickable" key="SEX" onClick={() => reqSort('sex')}>
                                                 Sex
                                         </th>
-                                        <th key="BIRTHDAY" onClick={() => reqSort('birthday')}>
+                                        <th className="is-clickable" key="BIRTHDAY" onClick={() => reqSort('birthday')}>
                                                 Birthday
                                         </th>
                                 </tr>
                         </thead>
                         <tbody>
-                                <EmployeeData employees={filtEmplys} deleteEmployee={deleteEmployee} />
+                                <EmployeeData
+                                        employees={filtEmplys}
+                                        deleteEmployee={deleteEmployee}
+                                        toggleModal={toggleModal}
+                                />
                         </tbody>
                 </table>
         );

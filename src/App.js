@@ -8,15 +8,6 @@ import EmployeesTable from './pages/EmployeesTable';
 import NewEmployees from './pages/NewEmployees';
 
 function App() {
-        // const toggleNav = () => {
-        //         const nav = document.getElementById('nav-menu');
-        //         const className = nav.getAttribute('class');
-        //         if (className === 'nav-rigth nav-menu') {
-        //                 nav.className = 'nav-right nav-menu is-active';
-        //         } else {
-        //                 nav.className = 'nav-rigth nav-menu';
-        //         }
-        // };
         const burgerChange = (e) => {
                 e.preventDefault();
                 console.log(e.target);
@@ -52,8 +43,8 @@ function App() {
                                                 </button>
                                         </div>
 
-                                        <div id="navbarBasicExample" className="navbar-menu">
-                                                <div className="navbar-start">
+                                        <div id="navbarBasicExample" className="navbar-menu is-active">
+                                                <div className="navbar-start ">
                                                         <Link className="navbar-item" to="/">
                                                                 Home
                                                         </Link>
