@@ -1,7 +1,6 @@
 const formReducer = (state, { key, newValue }) => {
         switch (key) {
                 case 'first':
-                        console.log(newValue);
                         state.name.first = newValue;
                         return { ...state };
                 case 'last':
@@ -15,7 +14,8 @@ const formReducer = (state, { key, newValue }) => {
                         return { ...state };
                 case 'reset':
                         return newValue;
-
+                case 'update':
+                        return newValue;
                 default:
                         throw new Error(`No reducer available for key = ${key}`);
         }

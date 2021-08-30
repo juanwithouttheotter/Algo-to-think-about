@@ -9,6 +9,7 @@ class EmployeesTable extends Component {
                 this.state = {
                         employees: [],
                         modalState: false,
+                        updateEmp: {},
                 };
         }
 
@@ -28,20 +29,17 @@ class EmployeesTable extends Component {
 
                         const empPos = employees.map((employee) => employee._id).indexOf(id);
                         employees.splice(empPos, 1);
-                        console.log(employees);
-
                         this.setState({ employees });
                 });
         };
 
-        toggleModal = (id) => {
-                console.log(id);
+        toggleModal = (employee) => {
                 const { modalState } = this.state;
-                this.setState({ modalState: !modalState });
+                this.setState({ modalState: !modalState, updateEmp: employee });
         };
 
         render() {
-                const { employees, modalState } = this.state;
+                const { employees, modalState, updateEmp } = this.state;
                 return (
                         <div>
                                 <h4 id="title">Employee Directory</h4>
@@ -50,7 +48,7 @@ class EmployeesTable extends Component {
                                         deleteEmployee={this.deleteEmployee}
                                         toggleModal={this.toggleModal}
                                 />
-                                <Modal modalState={modalState} toggleModal={this.toggleModal} />
+                                <Modal modalState={modalState} empData={updateEmp} toggleModal={this.toggleModal} />
                         </div>
                 );
         }

@@ -6,7 +6,7 @@ import DoBSelector from '../DoBSelector';
 import Btn from '../Button';
 import formReducer from '../../reducers/formReducer';
 
-const EmployeeForm = ({ operation }) => {
+const EmployeeForm = ({ operation, empData, modalState, toggleModal }) => {
         const initialFormState = {
                 name: { first: '', last: '' },
                 sex: '',
@@ -16,9 +16,12 @@ const EmployeeForm = ({ operation }) => {
         const [state, dispatch] = useReducer(formReducer, initialFormState);
 
         const handleInputChange = (key, newValue) => {
-                console.log(key, newValue);
                 dispatch({ key, newValue });
         };
+
+        if (modalState && state !== empData) {
+                handleInputChange(operation, empData);
+        }
 
         const btnPostAction = async (e) => {
                 e.preventDefault();
@@ -30,12 +33,19 @@ const EmployeeForm = ({ operation }) => {
                         .catch((err) => {
                                 alert(err);
                         });
-                console.log(state, 'post');
                 handleInputChange('reset', initialFormState);
         };
         const btnUpdateAction = async (e) => {
                 e.preventDefault();
-                console.log('update');
+                axios.patch(`http://localhost:3001/employee/${state._id}`, state)
+                        .then(({ data }) => {
+                                alert(data.message);
+                        })
+                        .catch((err) => {
+                                alert(err);
+                        });
+                handleInputChange('reset', initialFormState);
+                toggleModal();
         };
 
         return (

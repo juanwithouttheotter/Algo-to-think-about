@@ -15,7 +15,7 @@ function TableData({ employees, deleteEmployee, toggleModal }) {
                                 <td>
                                         <Btn
                                                 btn="button is-primary is-small"
-                                                btnAction={() => toggleModal(_id)}
+                                                btnAction={() => toggleModal(employee)}
                                                 name="update"
                                         />
                                 </td>
