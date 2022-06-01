@@ -33,32 +33,34 @@ const EmployeeSort = ({ filtEmplys, deleteEmployee, toggleModal }) => {
         };
 
         return (
-                <table className="table">
+                <table className="table is-striped is-hoverable ">
                         <thead>
                                 <tr>
-                                        <th className="is-clickable" key="ID" onClick={() => reqSort('id')}>
+                                        <th className="is-clickable" key="id" onClick={() => reqSort('_id')}>
                                                 Id
                                         </th>
                                         <th
                                                 className="is-clickable"
-                                                key="FIRSTNAME"
+                                                key="firstname"
                                                 onClick={() => reqSort('name', 'first')}
                                         >
                                                 First Name
                                         </th>
                                         <th
                                                 className="is-clickable"
-                                                key="LASTNAME"
+                                                key="lastname"
                                                 onClick={() => reqSort('name', 'last')}
                                         >
                                                 Last Name
                                         </th>
-                                        <th className="is-clickable" key="SEX" onClick={() => reqSort('sex')}>
+                                        <th className="is-clickable" key="sex" onClick={() => reqSort('sex')}>
                                                 Sex
                                         </th>
-                                        <th className="is-clickable" key="BIRTHDAY" onClick={() => reqSort('birthday')}>
+                                        <th className="is-clickable" key="birthday" onClick={() => reqSort('birthday')}>
                                                 Birthday
                                         </th>
+                                        <th key="updateBtn">{` `}</th>
+                                        <th key="deleteBtn">{` `}</th>
                                 </tr>
                         </thead>
                         <tbody>

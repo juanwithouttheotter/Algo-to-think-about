@@ -49,33 +49,38 @@ const EmployeeFilter = ({ employees, deleteEmployee, toggleModal }) => {
 
         return (
                 <div>
-                        <div className="columns">
-                                <div className="column is-half">
-                                        <SearchBar
-                                                inputValue={searchInput.search}
-                                                placeholder="Search in directory..."
-                                                searchOnChange={handleInputChange}
-                                        />
-                                </div>
-                                <div className="column is-narrow is-primary select">
-                                        <SelectInput
-                                                options="category"
-                                                selectOnChange={handleSelectChange}
-                                                selectValue={searchInput.category}
-                                        />
-                                </div>
-                                <div className="column">
-                                        <Btn btn="button is-primary" btnAction={handleFormFilter} name="Filter" />
+                        <div>
+                                <div className="columns is-justify-content-center">
+                                        <div className="column is-half">
+                                                <SearchBar
+                                                        inputValue={searchInput.search}
+                                                        placeholder="Search in directory..."
+                                                        searchOnChange={handleInputChange}
+                                                />
+                                        </div>
+                                        <div style={{ height: '100%' }} className="column is-narrow is-primary select">
+                                                <SelectInput
+                                                        options="category"
+                                                        selectOnChange={handleSelectChange}
+                                                        selectValue={searchInput.category}
+                                                />
+                                        </div>
+                                        <div className="column is-narrow">
+                                                <Btn
+                                                        btn="button is-primary"
+                                                        btnAction={handleFormFilter}
+                                                        name="Filter"
+                                                />
+                                        </div>
                                 </div>
                         </div>
-                        <div className="columns">
-                                <div className="column" />
+
+                        <div className="columns m-4 is-justify-content-center">
                                 <EmployeeSort
                                         filtEmplys={filtEmplys}
                                         deleteEmployee={deleteEmployee}
                                         toggleModal={toggleModal}
                                 />
-                                <div className="column" />
                         </div>
                 </div>
         );

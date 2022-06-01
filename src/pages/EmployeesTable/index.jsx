@@ -42,7 +42,8 @@ class EmployeesTable extends Component {
                 const { employees, modalState, updateEmp } = this.state;
                 return (
                         <div>
-                                <h4 id="title">Employee Directory</h4>
+                                <h2 className="title is-5 m-2 is-justify-content-center">Employee Directory</h2>
+                                <br />
                                 <EmployeeFilter
                                         employees={employees}
                                         deleteEmployee={this.deleteEmployee}

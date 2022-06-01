@@ -5,9 +5,11 @@ function TableData({ employees, deleteEmployee, toggleModal }) {
         return employees.map((employee) => {
                 const { _id, name, sex, birthday } = employee;
 
+                const idGen = () => _id.slice(_id.length - 6);
+
                 return (
                         <tr key={_id}>
-                                <td>{}</td>
+                                <td>{idGen()}</td>
                                 <td>{name.first}</td>
                                 <td>{name.last}</td>
                                 <td>{sex}</td>

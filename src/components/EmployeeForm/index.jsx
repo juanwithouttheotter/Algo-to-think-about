@@ -49,9 +49,9 @@ const EmployeeForm = ({ operation, empData, modalState, toggleModal }) => {
         };
 
         return (
-                <div className="">
+                <div className="column is-justify-content-center">
                         <div className="columns">
-                                <div className="field is-offset-1 column is-5">
+                                <div className="field column">
                                         <InputControl
                                                 name="first"
                                                 inputId="firstname"
@@ -59,7 +59,9 @@ const EmployeeForm = ({ operation, empData, modalState, toggleModal }) => {
                                                 onChange={(e) => handleInputChange('first', e.target.value)}
                                         />
                                 </div>
-                                <div className="field column is-5">
+                        </div>
+                        <div className="columns">
+                                <div className="field column">
                                         <InputControl
                                                 name="last"
                                                 inputId="lastname"
@@ -69,7 +71,7 @@ const EmployeeForm = ({ operation, empData, modalState, toggleModal }) => {
                                 </div>
                         </div>
                         <div className="columns">
-                                <div className="column is-offset-1 is-one-quarter">
+                                <div className="column">
                                         <div className="select is-primary">
                                                 <SelectInput
                                                         className=""
@@ -79,7 +81,9 @@ const EmployeeForm = ({ operation, empData, modalState, toggleModal }) => {
                                                 />
                                         </div>
                                 </div>
-                                <div className="column is-one-quarter is-offset-2">
+                        </div>
+                        <div className="columns">
+                                <div className="column">
                                         <DoBSelector classname="" dobOnChange={handleInputChange} />
                                 </div>
                                 <div className="column">
